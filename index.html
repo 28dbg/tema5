@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tema 5</title>
+</head>
+<body>
+    <h1>Configuratii de telefoane mobile</h1>
+    <label>Numar configuratii:</label>
+    <input type="number" id="configuratii" min="5" ><br>
+    <button id="cont" onclick="continua()">Continue</button><br>
+   <div id="config-form">
+    <ul id="configinf"></ul>
+    <li>
+        <span>ID:</span>
+        <input type="number" id="id">
+    </li>
+    <li>
+        <span>Model:</span>
+        <input type="text" id="model">
+    </li>
+    <li>
+        <span>Pret:</span>
+        <input type="number" id="pret">
+    </li>
+    <li>
+        <span>Producator:</span>
+        <input type="text" id="producator">
+    </li>
+    <li>
+        <span>Memory:</span>
+        <input type="number" id="memoria">
+    </li>
+    <button id="addbutton" onclick="adauga()">Add</button><br>
+    <button id="cheap" onclick="cheap()">Show the cheapest</button><br>
+    <button id="expensive" onclick="expensive()">Show the expensive</button><br>
+</div>
+    <script>
+        let configs=[];
+        let configuratii=0;
+        function continua(){
+            let configuratii_ar= Number(document.getElementById('configuratii').value);
+            if (configuratii_ar>=5){
+                configuratii=configuratii_ar;
+                document.getElementById('cont').disabled=true;
+                document.getElementById('config-form').style.display='block';
+            }else{
+               // console.error('>5');
+               alert('Numarul trebuie sa fie mai mare ca 5')
+                document.getElementById('configuratii').value="";
+            }
+        }
+
+        // function adauga(){
+        //     const config ={
+        //         id: Number(document.getElementById('id').value),
+        //         model: document.getElementById('model').value,
+        //         pret: Number(document.getElementById('pret').value),
+        //         producator: document.getElementById('producator').value,
+        //         memory: Number(document.getElementById('memoria').value)
+        //     };
+        //     configs.push(config);
+        //     if(configs.length === configuratii){
+        //         document.getElementById('addbutton').style.display='none';
+        //         document.getElementById('cheap').style.display='block';
+        //         document.getElementById('expensive').style.display='block';
+        //     }
+        // }
+        function informatii(id, model, pret, producator, memory){
+            this.id= id;
+            this.model= model;
+            this.pret= pret;
+            this.producator= producator;
+            this.memory= memory;
+        }
+        function adauga(){
+            let idi= document.getElementById('id').value;
+            let modeli= document.getElementById('model').value;
+            let preti= document.getElementById('pret').value;
+            let producatori= document.getElementById('producator').value;
+            let memoryi= document.getElementById('memoria').value
+            let informatiinoi= new informatii(id,model,pret,producator, memoria)
+            document.getElementById('id').value="";
+            document.getElementById('model').value="";
+            document.getElementById('pret').value="";
+            document.getElementById('producator').value="";
+            document.getElementById('memoria').value="";
+            console.log(informatii)
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
